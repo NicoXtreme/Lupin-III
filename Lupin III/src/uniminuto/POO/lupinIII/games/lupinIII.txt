@@ -1,0 +1,26 @@
+10
+20
+####################
+#PPPPPPP###PPPPPPPP#
+#PPPPPPP###PPPPPPPP#
+#PPPPPPP###PPPPPPPP#
+#PPPPPPP###PPPPPPPP#
+#PPPPPPPPPPPPPPPPPP#
+#P#####P###PPPPPPPP#
+#PPPPPPP###PPPPPPPP#
+#PPPPPPP###PPPPPPPP#
+####################
+13
+L 1 1
+$ 8 18
+{ 5 8
+{ 5 9
+{ 5 10
+[ 6 7
+[ 6 1
+K 8 1
+K 8 2
+K 8 3
+D 7 1
+D 7 7
+D 7 6
