@@ -7,12 +7,12 @@ import javax.swing.JFileChooser;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import lupinIII.menu.SeleccionarNivel;
 
 import uniminuto.POO.lupinIII.model.Tablero;
 import uniminuto.POO.lupinIII.model.exceptions.ArchivoCorruptoException;
 
-public class Game extends JFrame{
-
+public class Game extends javax.swing.JFrame{
 	private static final long serialVersionUID = 6708958011929656475L;
 
 	public Game(String path) throws FileNotFoundException, ArchivoCorruptoException{
@@ -26,14 +26,60 @@ public class Game extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		try {
-                    new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIII.txt")
+            SeleccionarNivel nivel = new SeleccionarNivel();
+    
+            int level = nivel.nivel;    
+            
+            if(level == 1){
+                try {
+                    new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel1.txt")
                             .getPath().replaceAll("%20", " "));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (ArchivoCorruptoException e) {
 			e.printStackTrace();
 		}
+            }
+            if(level == 2){
+                try {
+                    new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel2.txt")
+                            .getPath().replaceAll("%20", " "));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (ArchivoCorruptoException e) {
+			e.printStackTrace();
+		}
+            }
+            if(level == 3){
+                try {
+                    new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel3.txt")
+                            .getPath().replaceAll("%20", " "));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (ArchivoCorruptoException e) {
+			e.printStackTrace();
+		}
+            }
+            if(level == 4){
+                try {
+                    new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel4.txt")
+                            .getPath().replaceAll("%20", " "));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (ArchivoCorruptoException e) {
+			e.printStackTrace();
+		}
+            }
+            if(level == 5){
+                try {
+                    new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel5.txt")
+                            .getPath().replaceAll("%20", " "));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (ArchivoCorruptoException e) {
+			e.printStackTrace();
+		}
+            }
 	}
-
+   
 }

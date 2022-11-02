@@ -4,6 +4,12 @@
  */
 package lupinIII.menu;
 
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import uniminuto.POO.lupinIII.control.Game;
+import uniminuto.POO.lupinIII.model.exceptions.ArchivoCorruptoException;
+
 /**
  *
  * @author NicoXtreme
@@ -13,6 +19,8 @@ public class SeleccionarNivel extends javax.swing.JFrame {
     /**
      * Creates new form SeleccionarNivel
      */
+    public int nivel;
+    String path;
     public SeleccionarNivel() {
         initComponents();
     }
@@ -28,15 +36,15 @@ public class SeleccionarNivel extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Nivel1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        Nivel2 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        Nivel3 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        Nivel4 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        Nivel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -47,9 +55,14 @@ public class SeleccionarNivel extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(91, 99, 140));
 
-        jLabel1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Nivel 1");
+        Nivel1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        Nivel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Nivel1.setText("Nivel 1");
+        Nivel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Nivel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -57,22 +70,27 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 170, 370));
 
         jPanel8.setBackground(new java.awt.Color(91, 99, 140));
 
-        jLabel2.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Nivel 2");
+        Nivel2.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        Nivel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Nivel2.setText("Nivel 2");
+        Nivel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Nivel2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -80,22 +98,27 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 170, 370));
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 170, 370));
 
         jPanel9.setBackground(new java.awt.Color(91, 99, 140));
 
-        jLabel3.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Nivel 3");
+        Nivel3.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        Nivel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Nivel3.setText("Nivel 3");
+        Nivel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Nivel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -103,22 +126,27 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 170, 370));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 170, 370));
 
         jPanel10.setBackground(new java.awt.Color(91, 99, 140));
 
-        jLabel4.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Nivel 4");
+        Nivel4.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        Nivel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Nivel4.setText("Nivel 4");
+        Nivel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Nivel4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -126,40 +154,44 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel4, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 170, 370));
+        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 170, 370));
 
         jPanel11.setBackground(new java.awt.Color(91, 99, 140));
 
-        jLabel5.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Nivel 5");
+        Nivel5.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        Nivel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Nivel5.setText("Nivel 5");
+        Nivel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Nivel5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Nivel5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Nivel5, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 80, 170, 370));
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 170, 370));
 
         jLabel6.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         jLabel6.setText("SELECCIONA UN NIVEL");
@@ -178,9 +210,10 @@ public class SeleccionarNivel extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,6 +230,86 @@ public class SeleccionarNivel extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void Nivel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel1MouseClicked
+        nivel = 1;
+        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel1.txt";
+        try {
+            Game newframe = new Game(path);
+            
+            newframe.setVisible(true);
+            
+            this.dispose();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArchivoCorruptoException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Nivel1MouseClicked
+
+    private void Nivel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel2MouseClicked
+        nivel = 2;
+        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel2.txt";
+        try {
+            Game newframe = new Game(path);
+            
+            newframe.setVisible(true);
+            
+            this.dispose();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArchivoCorruptoException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Nivel2MouseClicked
+
+    private void Nivel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel3MouseClicked
+        nivel = 3;
+        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel3.txt";
+        try {
+            Game newframe = new Game(path);
+            
+            newframe.setVisible(true);
+            
+            this.dispose();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArchivoCorruptoException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Nivel3MouseClicked
+
+    private void Nivel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel4MouseClicked
+        nivel = 4;
+        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel4.txt";
+        try {
+            Game newframe = new Game(path);
+            
+            newframe.setVisible(true);
+            
+            this.dispose();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArchivoCorruptoException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Nivel4MouseClicked
+
+    private void Nivel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel5MouseClicked
+        nivel = 5;
+        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel5.txt";
+        try {
+            Game newframe = new Game(path);
+            
+            newframe.setVisible(true);
+            
+            this.dispose();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArchivoCorruptoException ex) {
+            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Nivel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -234,11 +347,11 @@ public class SeleccionarNivel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel Nivel1;
+    private javax.swing.JLabel Nivel2;
+    private javax.swing.JLabel Nivel3;
+    private javax.swing.JLabel Nivel4;
+    private javax.swing.JLabel Nivel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
