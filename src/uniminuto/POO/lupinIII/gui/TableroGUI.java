@@ -7,8 +7,10 @@ import java.awt.event.KeyEvent;
 import java.util.HashMap;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import lupinIII.menu.SeleccionarNivel;
 
 import uniminuto.POO.lupinIII.model.Tablero;
 import uniminuto.POO.lupinIII.model.componentes.enemigos.Perro;
@@ -91,9 +93,17 @@ public class TableroGUI extends JPanel {
                 tgui.actualizar();
                 if (t.terminoJuego()) {
                     if (t.gano()) {
-                        JOptionPane.showMessageDialog(null, "Felicidades");
+                        SeleccionarNivel newframe = new SeleccionarNivel();
+                        
+                        newframe.setVisible(true);
+                        JLabel Nivel2 = new javax.swing.JLabel();
+
+                        Nivel2.setVisible(true);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Perdio");
+                        SeleccionarNivel newframe = new SeleccionarNivel();
+                        
+                        newframe.setVisible(true);
+                        
                     }
                 }
             }

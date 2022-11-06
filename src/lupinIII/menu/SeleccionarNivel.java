@@ -19,6 +19,9 @@ public class SeleccionarNivel extends javax.swing.JFrame {
     /**
      * Creates new form SeleccionarNivel
      */
+    public boolean bloqueado;
+    
+    
     public int nivel;
     String path;
     public SeleccionarNivel() {
@@ -83,6 +86,7 @@ public class SeleccionarNivel extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(91, 99, 140));
 
+        Nivel2.setVisible(false);
         Nivel2.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         Nivel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Nivel2.setText("Nivel 2");
@@ -111,6 +115,7 @@ public class SeleccionarNivel extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(91, 99, 140));
 
+        Nivel3.setVisible(false);
         Nivel3.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         Nivel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Nivel3.setText("Nivel 3");
@@ -139,6 +144,7 @@ public class SeleccionarNivel extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(91, 99, 140));
 
+        Nivel4.setVisible(false);
         Nivel4.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         Nivel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Nivel4.setText("Nivel 4");
@@ -167,6 +173,7 @@ public class SeleccionarNivel extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(91, 99, 140));
 
+        Nivel5.setVisible(false);
         Nivel5.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         Nivel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Nivel5.setText("Nivel 5");
@@ -345,6 +352,7 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Nivel1;
