@@ -91,7 +91,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void InicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InicioMouseClicked
-        SeleccionarNivel newframe = new SeleccionarNivel();
+        SeleccionNivel newframe = new SeleccionNivel();
         
         newframe.setVisible(true);
         

@@ -7,7 +7,7 @@ import javax.swing.JFileChooser;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import lupinIII.menu.SeleccionarNivel;
+import lupinIII.menu.SeleccionNivel;
 
 import uniminuto.POO.lupinIII.model.Tablero;
 import uniminuto.POO.lupinIII.model.exceptions.ArchivoCorruptoException;
@@ -26,7 +26,7 @@ public class Game extends javax.swing.JFrame{
 	}
 	
 	public static void main(String[] args) {
-            SeleccionarNivel nivel = new SeleccionarNivel();
+            SeleccionNivel nivel = new SeleccionNivel();
     
             int level = nivel.nivel;    
             

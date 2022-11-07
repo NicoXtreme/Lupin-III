@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import lupinIII.menu.SeleccionarNivel;
+import lupinIII.menu.SeleccionNivel;
 
 import uniminuto.POO.lupinIII.model.Tablero;
 import uniminuto.POO.lupinIII.model.componentes.enemigos.Perro;
@@ -76,6 +76,10 @@ public class TableroGUI extends JPanel {
 
         @Override
         public void keyPressed(KeyEvent e) {
+            SeleccionNivel nivel = new SeleccionNivel();
+            
+            int level = nivel.nivel;
+            
             Direccion d = Direccion.STOP;
             if (!t.terminoJuego()) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -88,26 +92,32 @@ public class TableroGUI extends JPanel {
                     d = Direccion.IZQUIERDA;
                 }
             }
+            //COMPROBADOR, PARA SABER SI UN NIVEL SE SUPERO Y DESBLOQUEAR EL SIGUIENTE
             if (d != Direccion.STOP) {
                 t.moverLadron(d);
                 tgui.actualizar();
                 if (t.terminoJuego()) {
                     if (t.gano()) {
-                        SeleccionarNivel newframe = new SeleccionarNivel();
+                        SeleccionNivel newframe = new SeleccionNivel();
                         
                         newframe.setVisible(true);
-                        JLabel Nivel2 = new javax.swing.JLabel();
-
-                        Nivel2.setVisible(true);
                     } else {
-                        SeleccionarNivel newframe = new SeleccionarNivel();
+                        SeleccionNivel newframe = new SeleccionNivel();
+                        
+                        newframe.Nivel2.setVisible(true);
                         
                         newframe.setVisible(true);
-                        
                     }
                 }
             }
             super.keyPressed(e);
+        }
+        public class Comprobador {
+            boolean nivelSuperado = false;
+            SeleccionNivel nivel = new SeleccionNivel();
+            
+            int level = nivel.nivel;
+            
         }
     }
 }

@@ -14,17 +14,17 @@ import uniminuto.POO.lupinIII.model.exceptions.ArchivoCorruptoException;
  *
  * @author NicoXtreme
  */
-public class SeleccionarNivel extends javax.swing.JFrame {
+public class SeleccionNivel extends javax.swing.JFrame {
 
     /**
-     * Creates new form SeleccionarNivel
+     * Creates new form SeleccionNivel
      */
     public boolean bloqueado;
     
     
     public int nivel;
     String path;
-    public SeleccionarNivel() {
+    public SeleccionNivel() {
         initComponents();
     }
 
@@ -240,7 +240,7 @@ public class SeleccionarNivel extends javax.swing.JFrame {
 
     private void Nivel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel1MouseClicked
         nivel = 1;
-        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel1.txt";
+        path = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel1.txt";
         try {
             Game newframe = new Game(path);
             
@@ -248,15 +248,15 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             
             this.dispose();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ArchivoCorruptoException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Nivel1MouseClicked
 
     private void Nivel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel2MouseClicked
         nivel = 2;
-        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel2.txt";
+        path = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel2.txt";
         try {
             Game newframe = new Game(path);
             
@@ -264,9 +264,9 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             
             this.dispose();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ArchivoCorruptoException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Nivel2MouseClicked
 
@@ -280,9 +280,9 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             
             this.dispose();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ArchivoCorruptoException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Nivel3MouseClicked
 
@@ -296,9 +296,9 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             
             this.dispose();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ArchivoCorruptoException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Nivel4MouseClicked
 
@@ -312,9 +312,9 @@ public class SeleccionarNivel extends javax.swing.JFrame {
             
             this.dispose();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ArchivoCorruptoException ex) {
-            Logger.getLogger(SeleccionarNivel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Nivel5MouseClicked
 
@@ -335,20 +335,21 @@ public class SeleccionarNivel extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SeleccionarNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeleccionNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SeleccionarNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeleccionNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SeleccionarNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeleccionNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SeleccionarNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SeleccionNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SeleccionarNivel().setVisible(true);
+                new SeleccionNivel().setVisible(true);
             }
         });
     }
@@ -356,7 +357,7 @@ public class SeleccionarNivel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Nivel1;
-    private javax.swing.JLabel Nivel2;
+    public javax.swing.JLabel Nivel2;
     private javax.swing.JLabel Nivel3;
     private javax.swing.JLabel Nivel4;
     private javax.swing.JLabel Nivel5;
