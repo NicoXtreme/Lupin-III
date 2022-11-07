@@ -68,17 +68,14 @@ public class TableroGUI extends JPanel {
 
         private Tablero t;
         private TableroGUI tgui;
-
+            
         public EvTeclado(Tablero t, TableroGUI tgui) {
             this.t = t;
             this.tgui = tgui;
         }
-
+ 
         @Override
         public void keyPressed(KeyEvent e) {
-            SeleccionNivel nivel = new SeleccionNivel();
-            
-            int level = nivel.nivel;
             
             Direccion d = Direccion.STOP;
             if (!t.terminoJuego()) {
@@ -97,27 +94,18 @@ public class TableroGUI extends JPanel {
                 t.moverLadron(d);
                 tgui.actualizar();
                 if (t.terminoJuego()) {
-                    if (t.gano()) {
-                        SeleccionNivel newframe = new SeleccionNivel();
-                        
-                        newframe.setVisible(true);
-                    } else {
-                        SeleccionNivel newframe = new SeleccionNivel();
-                        
-                        newframe.Nivel2.setVisible(true);
-                        
-                        newframe.setVisible(true);
+                        if (t.gano()) {
+                            SeleccionNivel newframe = new SeleccionNivel();
+                            newframe.setVisible(true);
+                        } else {
+                            SeleccionNivel newframe = new SeleccionNivel();
+                            newframe.Nivel2.setVisible(true);
+                            newframe.setVisible(true);
+                        }   
                     }
-                }
             }
             super.keyPressed(e);
         }
-        public class Comprobador {
-            boolean nivelSuperado = false;
-            SeleccionNivel nivel = new SeleccionNivel();
-            
-            int level = nivel.nivel;
-            
-        }
+        
     }
 }
