@@ -19,8 +19,15 @@ public class SeleccionNivel extends javax.swing.JFrame {
     /**
      * Creates new form SeleccionNivel
      */
+    public boolean bloqueado;
+    
+    
+    public int nivel;
     String path;
-    int nivel;
+    public SeleccionNivel() {
+        initComponents();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,7 +41,6 @@ public class SeleccionNivel extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         Nivel1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        boolean superado = false;
         Nivel2 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         Nivel3 = new javax.swing.JLabel();
@@ -249,6 +255,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_Nivel1MouseClicked
 
     private void Nivel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel2MouseClicked
+        nivel = 2;
         path = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel2.txt";
         try {
             Game newframe = new Game(path);
@@ -264,7 +271,8 @@ public class SeleccionNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_Nivel2MouseClicked
 
     private void Nivel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel3MouseClicked
-        path = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel3.txt";
+        nivel = 3;
+        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel3.txt";
         try {
             Game newframe = new Game(path);
             
@@ -279,7 +287,8 @@ public class SeleccionNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_Nivel3MouseClicked
 
     private void Nivel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel4MouseClicked
-        path = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel4.txt";
+        nivel = 4;
+        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel4.txt";
         try {
             Game newframe = new Game(path);
             
@@ -294,7 +303,8 @@ public class SeleccionNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_Nivel4MouseClicked
 
     private void Nivel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel5MouseClicked
-        path = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel5.txt";
+        nivel = 5;
+        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel5.txt";
         try {
             Game newframe = new Game(path);
             
@@ -346,11 +356,11 @@ public class SeleccionNivel extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel Nivel1;
+    private javax.swing.JLabel Nivel1;
     public javax.swing.JLabel Nivel2;
-    public javax.swing.JLabel Nivel3;
-    public javax.swing.JLabel Nivel4;
-    public javax.swing.JLabel Nivel5;
+    private javax.swing.JLabel Nivel3;
+    private javax.swing.JLabel Nivel4;
+    private javax.swing.JLabel Nivel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
