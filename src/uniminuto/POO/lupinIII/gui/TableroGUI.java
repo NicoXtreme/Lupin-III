@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import lupinIII.menu.SeleccionNivel;
 
 import uniminuto.POO.lupinIII.model.Tablero;
+import uniminuto.POO.lupinIII.model.Vidas;
 import uniminuto.POO.lupinIII.model.componentes.enemigos.Perro;
 import uniminuto.POO.lupinIII.model.componentes.estaticos.Muro;
 import uniminuto.POO.lupinIII.model.componentes.estaticos.Piso;
@@ -32,6 +33,7 @@ public class TableroGUI extends JPanel {
         Tesoro.class};
     private PanelFondo[][] m;
     private Tablero t;
+    private Vidas vidas;
 
     public TableroGUI(Tablero t) {
         this.t = t;
@@ -47,6 +49,7 @@ public class TableroGUI extends JPanel {
 
         m = new PanelFondo[t.getHeight()][t.getWidth()];
         actualizar();
+        vidas = new Vidas();
 
         this.addKeyListener(new EvTeclado(t, this));
 
@@ -102,6 +105,14 @@ public class TableroGUI extends JPanel {
                         
                         newframe.setVisible(true);
                     } else {
+                        vidas.setVidas(vidas.getVidas()-1);
+                        int vidasRest = vidas.getVidas();
+                        if (vidasRest == 0){
+                            JOptionPane.showMessageDialog(null, "Perdio");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Le queda(n) "+vidasRest+" vida(s).");  
+                        } 
+                        
                         SeleccionNivel newframe = new SeleccionNivel();
                         
                         newframe.Nivel2.setVisible(true);
