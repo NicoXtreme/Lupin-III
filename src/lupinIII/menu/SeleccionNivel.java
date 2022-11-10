@@ -240,10 +240,10 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel1MouseClicked
         nivel = 1;
-        path = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel1.txt";
         try {
-            Game newframe = new Game(path);
-            
+             
+           Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel1.txt").getPath().replaceAll("%20", " "));
+             
             newframe.setVisible(true);
             
             this.dispose();
@@ -256,9 +256,10 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel2MouseClicked
         nivel = 2;
-        path = "C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel2.txt";
         try {
-            Game newframe = new Game(path);
+              Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel2.txt").getPath().replaceAll("%20", " "));
+             
+            newframe.setVisible(true);
             
             newframe.setVisible(true);
             
@@ -272,10 +273,9 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel3MouseClicked
         nivel = 3;
-        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel3.txt";
         try {
-            Game newframe = new Game(path);
-            
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel3.txt").getPath().replaceAll("%20", " "));
+             
             newframe.setVisible(true);
             
             this.dispose();
@@ -288,11 +288,11 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel4MouseClicked
         nivel = 4;
-        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel4.txt";
         try {
-            Game newframe = new Game(path);
-            
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel4.txt").getPath().replaceAll("%20", " "));
+             
             newframe.setVisible(true);
+           
             
             this.dispose();
         } catch (FileNotFoundException ex) {
@@ -304,10 +304,9 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel5MouseClicked
         nivel = 5;
-        path = "C:\\Users\\nicox\\OneDrive\\Documentos\\NetBeansProjects\\Lupin-III\\src\\uniminuto\\POO\\lupinIII\\games\\lupinIIINivel5.txt";
         try {
-            Game newframe = new Game(path);
-            
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel5.txt").getPath().replaceAll("%20", " "));
+             
             newframe.setVisible(true);
             
             this.dispose();
