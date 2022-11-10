@@ -102,7 +102,7 @@ public class TableroGUI extends JPanel {
                 if (t.terminoJuego()) {
                     if (t.gano()) {
                         SeleccionNivel newframe = new SeleccionNivel();
-                        
+                         newframe.Nivel2.setVisible(true);
                         newframe.setVisible(true);
                     } else {
                         vidas.setVidas(vidas.getVidas()-1);
@@ -113,11 +113,6 @@ public class TableroGUI extends JPanel {
                             JOptionPane.showMessageDialog(null, "Le queda(n) "+vidasRest+" vida(s).");  
                         } 
                         
-                        SeleccionNivel newframe = new SeleccionNivel();
-                        
-                        newframe.Nivel2.setVisible(true);
-                        
-                        newframe.setVisible(true);
                     }
                 }
             }
