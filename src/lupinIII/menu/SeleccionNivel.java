@@ -261,8 +261,6 @@ public class SeleccionNivel extends javax.swing.JFrame {
              
             newframe.setVisible(true);
             
-            newframe.setVisible(true);
-            
             this.dispose();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
@@ -355,11 +353,11 @@ public class SeleccionNivel extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Nivel1;
+    public javax.swing.JLabel Nivel1;
     public javax.swing.JLabel Nivel2;
-    private javax.swing.JLabel Nivel3;
-    private javax.swing.JLabel Nivel4;
-    private javax.swing.JLabel Nivel5;
+    public javax.swing.JLabel Nivel3;
+    public javax.swing.JLabel Nivel4;
+    public javax.swing.JLabel Nivel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
