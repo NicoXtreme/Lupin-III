@@ -27,38 +27,28 @@ int nivel;
    public void setNiveles(int nivel){
       this.nivel = nivel; 
    }
-    public void Desbloquear(int nivel){
+    public void Desbloquear(int nivel){+
+        SeleccionNivel n = new SeleccionNivel();  
         if (nivel == 1) {
-            SeleccionNivel newframe = new SeleccionNivel();
                         
-                        newframe.Nivel1.setVisible(true);
-                        
-             
+                        n.Nivel1.setVisible(true);
         } 
         if (nivel==2) {
               SeleccionNivel newframe = new SeleccionNivel();
                         
-                        newframe.Nivel2.setVisible(true);
-                        
-                        
-                 
+                        n.Nivel2.setVisible(true);
         }
         if(nivel==3){
               SeleccionNivel newframe = new SeleccionNivel();
                         
-                        newframe.Nivel3.setVisible(true);
-            
+                        n.Nivel3.setVisible(true);
         }
         if(nivel==4){
               SeleccionNivel newframe = new SeleccionNivel();
                         
-                        newframe.Nivel3.setVisible(true);
-                        
-                      
+                        n.Nivel3.setVisible(true);
         }
-          SeleccionNivel newframe = new SeleccionNivel();
-         newframe.setVisible(true);
- 
+         n.setVisible(true);
    }
    
    
