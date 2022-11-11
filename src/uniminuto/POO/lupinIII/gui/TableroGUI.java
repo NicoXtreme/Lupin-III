@@ -23,6 +23,7 @@ import uniminuto.POO.lupinIII.model.componentes.puertas.PuertaBlock;
 import uniminuto.POO.lupinIII.model.componentes.tesoros.Tesoro;
 import uniminuto.POO.lupinIII.model.componentes.llaves.Key;
 import uniminuto.POO.lupinIII.model.Direccion;
+import uniminuto.POO.lupinIII.model.Niveles;
 
 public class TableroGUI extends JPanel {
 
@@ -34,7 +35,8 @@ public class TableroGUI extends JPanel {
     private PanelFondo[][] m;
     private Tablero t;
     private Vidas vidas;
-
+      private Niveles niveles;
+      
     public TableroGUI(Tablero t) {
         this.t = t;
         imgs = new HashMap<Class, Image>();
@@ -50,6 +52,7 @@ public class TableroGUI extends JPanel {
         m = new PanelFondo[t.getHeight()][t.getWidth()];
         actualizar();
         vidas = new Vidas();
+         niveles = new Niveles();
 
         this.addKeyListener(new EvTeclado(t, this));
 
