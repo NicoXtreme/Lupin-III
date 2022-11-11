@@ -101,9 +101,11 @@ public class TableroGUI extends JPanel {
                 tgui.actualizar();
                 if (t.terminoJuego()) {
                     if (t.gano()) {
-                        SeleccionNivel newframe = new SeleccionNivel();
-                         newframe.Nivel2.setVisible(true);
-                        newframe.setVisible(true);
+                         int piso;
+                       niveles.setNiveles(niveles.getNiveles()+1);
+                        piso = niveles.getNiveles();
+                             JOptionPane.showMessageDialog(null, ""+piso+" ");  
+                       niveles.Desbloquear(piso);
                     } else {
                         vidas.setVidas(vidas.getVidas()-1);
                         int vidasRest = vidas.getVidas();
