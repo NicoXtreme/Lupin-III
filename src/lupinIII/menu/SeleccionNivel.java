@@ -22,7 +22,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
     public boolean bloqueado;
     
     
-    public int nivel;
+    public int nivel= 1;
     String path;
     public SeleccionNivel() {
         initComponents();
@@ -229,7 +229,12 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ public void setNiveles(int nivel){
+      this.nivel = nivel; 
+   }
+ public int getNiveles(){
+    return nivel; 
+   }
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         MenuPrincipal newframe = new MenuPrincipal();
         
@@ -242,7 +247,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
         nivel = 1;
         try {
              
-           Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel1.txt").getPath().replaceAll("%20", " "));
+           Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel1.txt").getPath().replaceAll("%20", " "),nivel);
              
             newframe.setVisible(true);
             
@@ -257,7 +262,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
     private void Nivel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel2MouseClicked
         nivel = 2;
         try {
-              Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel2.txt").getPath().replaceAll("%20", " "));
+              Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel2.txt").getPath().replaceAll("%20", " "),nivel);
              
             newframe.setVisible(true);
             
@@ -272,7 +277,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
     private void Nivel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel3MouseClicked
         nivel = 3;
         try {
-            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel3.txt").getPath().replaceAll("%20", " "));
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel3.txt").getPath().replaceAll("%20", " "),nivel);
              
             newframe.setVisible(true);
             
@@ -287,7 +292,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
     private void Nivel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel4MouseClicked
         nivel = 4;
         try {
-            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel4.txt").getPath().replaceAll("%20", " "));
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel4.txt").getPath().replaceAll("%20", " "),nivel);
              
             newframe.setVisible(true);
            
@@ -303,7 +308,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
     private void Nivel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel5MouseClicked
         nivel = 5;
         try {
-            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel5.txt").getPath().replaceAll("%20", " "));
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel5.txt").getPath().replaceAll("%20", " "),nivel);
              
             newframe.setVisible(true);
             

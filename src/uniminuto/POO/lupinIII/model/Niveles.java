@@ -15,6 +15,8 @@ public class Niveles {
     /* la variable que va a controlar las vidas
     */
 int nivel;
+    SeleccionNivel n = new SeleccionNivel();
+
    
    public Niveles(){
        nivel = 1;
@@ -27,27 +29,35 @@ int nivel;
    public void setNiveles(int nivel){
       this.nivel = nivel; 
    }
-    public void Desbloquear(int nivel){+
-        SeleccionNivel n = new SeleccionNivel();  
+    public void Desbloquear(int nivel){
+         
         if (nivel == 1) {
                         
                         n.Nivel1.setVisible(true);
         } 
         if (nivel==2) {
-              SeleccionNivel newframe = new SeleccionNivel();
-                        
+                         n.Nivel1.setVisible(true);
                         n.Nivel2.setVisible(true);
         }
         if(nivel==3){
-              SeleccionNivel newframe = new SeleccionNivel();
-                        
+                        n.Nivel1.setVisible(true);
+                        n.Nivel2.setVisible(true);
                         n.Nivel3.setVisible(true);
         }
         if(nivel==4){
-              SeleccionNivel newframe = new SeleccionNivel();
-                        
+                         n.Nivel1.setVisible(true);
+                        n.Nivel2.setVisible(true);
                         n.Nivel3.setVisible(true);
+                        n.Nivel4.setVisible(true);
         }
+         if(nivel==5){
+                         n.Nivel1.setVisible(true);
+                        n.Nivel2.setVisible(true);
+                        n.Nivel3.setVisible(true);
+                        n.Nivel4.setVisible(true);
+                         n.Nivel5.setVisible(true);
+        }
+        n.setNiveles(nivel);
          n.setVisible(true);
    }
    

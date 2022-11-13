@@ -36,6 +36,7 @@ public class TableroGUI extends JPanel {
     private Tablero t;
     private Vidas vidas;
       private Niveles niveles;
+      int piso;
       
     public TableroGUI(Tablero t) {
         this.t = t;
@@ -104,11 +105,12 @@ public class TableroGUI extends JPanel {
                 tgui.actualizar();
                 if (t.terminoJuego()) {
                     if (t.gano()) {
-                         int piso;
-                       niveles.setNiveles(niveles.getNiveles()+1);
-                        piso = niveles.getNiveles();
-                             JOptionPane.showMessageDialog(null, ""+piso+" ");  
+                        
+                        
+                         niveles.setNiveles(piso+1);
+                        piso = niveles.getNiveles(); 
                        niveles.Desbloquear(piso);
+                        
                     } else {
                         vidas.setVidas(vidas.getVidas()-1);
                         int vidasRest = vidas.getVidas();
@@ -123,12 +125,16 @@ public class TableroGUI extends JPanel {
             }
             super.keyPressed(e);
         }
-        public class Comprobador {
-            boolean nivelSuperado = false;
-            SeleccionNivel nivel = new SeleccionNivel();
-            
-            int level = nivel.nivel;
-            
-        }
+     
+        
     }
+
+    public int getPiso() {
+        return piso;
+    }
+
+    public void setPiso(int piso) {
+        this.piso = piso;
+    }
+    
 }
