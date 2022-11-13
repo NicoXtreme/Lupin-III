@@ -37,7 +37,7 @@ public class TableroGUI extends JPanel {
     private Vidas vidas;
       private Niveles niveles = Niveles.getSingletonInstance(WIDTH);
       int piso;
-      
+      int vidasRest=1;
     public TableroGUI(Tablero t) {
         this.t = t;
         imgs = new HashMap<Class, Image>();
@@ -85,7 +85,7 @@ public class TableroGUI extends JPanel {
         public void keyPressed(KeyEvent e) {
 
             Direccion d = Direccion.STOP;
-            if (!t.terminoJuego()) {
+            if (!t.terminoJuego()|| vidasRest>0) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     d = Direccion.ARRIBA;
                 } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -97,7 +97,7 @@ public class TableroGUI extends JPanel {
                 }
             }
             //COMPROBADOR, PARA SABER SI UN NIVEL SE SUPERO Y DESBLOQUEAR EL SIGUIENTE
-            if (d != Direccion.STOP) {
+            if (d != Direccion.STOP|| vidasRest>0) {
                 t.moverLadron(d);
                 tgui.actualizar();
                 if (t.terminoJuego()) {
@@ -110,7 +110,7 @@ public class TableroGUI extends JPanel {
                         
                     } else {
                         vidas.setVidas(vidas.getVidas()-1);
-                        int vidasRest = vidas.getVidas();
+                         vidasRest = vidas.getVidas();
                         if (vidasRest == 0){
                             JOptionPane.showMessageDialog(null, "Perdio");
                         }else{
