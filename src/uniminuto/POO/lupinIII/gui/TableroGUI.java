@@ -35,7 +35,7 @@ public class TableroGUI extends JPanel {
     private PanelFondo[][] m;
     private Tablero t;
     private Vidas vidas;
-      private Niveles niveles;
+      private Niveles niveles = Niveles.getSingletonInstance(WIDTH);
       int piso;
       
     public TableroGUI(Tablero t) {
@@ -83,10 +83,7 @@ public class TableroGUI extends JPanel {
 
         @Override
         public void keyPressed(KeyEvent e) {
-            SeleccionNivel nivel = new SeleccionNivel();
-            
-            int level = nivel.nivel;
-            
+
             Direccion d = Direccion.STOP;
             if (!t.terminoJuego()) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
