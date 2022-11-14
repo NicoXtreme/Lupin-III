@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import lupinIII.menu.SeleccionNivel;
+import uniminuto.POO.lupinIII.model.Contador;
 
 import uniminuto.POO.lupinIII.model.Tablero;
 import uniminuto.POO.lupinIII.model.Vidas;
@@ -35,9 +36,10 @@ public class TableroGUI extends JPanel {
     private PanelFondo[][] m;
     private Tablero t;
     private Vidas vidas;
-      private Niveles niveles = Niveles.getSingletonInstance(WIDTH);
-      int piso;
-      int vidasRest=1;
+    private Contador timer;
+    private Niveles niveles = Niveles.getSingletonInstance(WIDTH);
+    int piso;
+    int vidasRest=1;
     public TableroGUI(Tablero t) {
         this.t = t;
         imgs = new HashMap<Class, Image>();
@@ -53,8 +55,9 @@ public class TableroGUI extends JPanel {
         m = new PanelFondo[t.getHeight()][t.getWidth()];
         actualizar();
         vidas = new Vidas();
-         niveles = new Niveles();
-
+        niveles = new Niveles();
+        timer = new Contador();
+        timer.timer.start();
         this.addKeyListener(new EvTeclado(t, this));
 
     }
@@ -83,7 +86,6 @@ public class TableroGUI extends JPanel {
 
         @Override
         public void keyPressed(KeyEvent e) {
-
             Direccion d = Direccion.STOP;
             if (!t.terminoJuego()|| vidasRest>0) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -102,12 +104,10 @@ public class TableroGUI extends JPanel {
                 tgui.actualizar();
                 if (t.terminoJuego()) {
                     if (t.gano()) {
-                        
-                        
-                         niveles.setNiveles(piso+1);
+                        niveles.setNiveles(piso+1);
                         piso = niveles.getNiveles(); 
-                       niveles.Desbloquear(piso);
-                        
+                        niveles.Desbloquear(piso);
+                        timer.timer.stop();
                     } else {
                         vidas.setVidas(vidas.getVidas()-1);
                          vidasRest = vidas.getVidas();

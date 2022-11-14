@@ -14,6 +14,7 @@ import uniminuto.POO.lupinIII.model.componentes.Dinamico;
 import uniminuto.POO.lupinIII.model.componentes.Push;
 import uniminuto.POO.lupinIII.model.componentes.enemigos.Enemigo;
 import uniminuto.POO.lupinIII.model.componentes.estaticos.Estatico;
+import uniminuto.POO.lupinIII.model.componentes.ladrones.Ladron;
 import uniminuto.POO.lupinIII.model.componentes.ladrones.Manual;
 import uniminuto.POO.lupinIII.model.componentes.llaves.Key;
 import uniminuto.POO.lupinIII.model.componentes.tesoros.Tesoro;
@@ -196,7 +197,12 @@ public class Tablero {
                 }
             }
         }
+        
         return false;
+    }
+    
+    public Manual reiniciar(){
+        return new Ladron(1, 1);
     }
 
     public boolean movimientoPosible(Dinamico c, Direccion d) {
@@ -246,7 +252,7 @@ public class Tablero {
         }
         return false;
     }
-
+    
     private boolean buscarPresionados() {
         for (Dinamico c : vDin) {
             if (c instanceof Push) {

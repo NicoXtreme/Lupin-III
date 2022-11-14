@@ -75,8 +75,9 @@ public class Niveles {
                         n.Nivel4.setVisible(true);
                         n.Nivel5.setVisible(true);
         }
+        
         n.setNiveles(nivel);
-         n.setVisible(true);
+        n.setVisible(true);
    }
 
 }

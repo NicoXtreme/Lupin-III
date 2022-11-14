@@ -13,7 +13,7 @@ public abstract class Manual extends Dinamico implements AbridorPuerta,
 	public Manual(int i, int j) {
 		super(i, j);
 	}
-
+       
 	public Manual(int i, int j, int vel) {
 		super(i, j, vel);
 	}

@@ -8,6 +8,10 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uniminuto.POO.lupinIII.control.Game;
+import uniminuto.POO.lupinIII.model.Contador;
+import uniminuto.POO.lupinIII.model.JugandoState;
+import uniminuto.POO.lupinIII.model.NoJugandoState;
+import uniminuto.POO.lupinIII.model.State;
 import uniminuto.POO.lupinIII.model.exceptions.ArchivoCorruptoException;
 
 /**
@@ -19,15 +23,30 @@ public class SeleccionNivel extends javax.swing.JFrame {
     /**
      * Creates new form SeleccionNivel
      */
-    public boolean bloqueado;
-    
-    
-    public int nivel= 1;
+    public Contador timer;
+    public State state;
+    public boolean jugando;
+    public int nivel;
+    public int vidas;
     String path;
     public SeleccionNivel() {
         initComponents();
-    }
+        timer = new Contador();
+        state = new State() {
+            @Override
+            public String jugando() {
+                System.out.println("Estado: JUGANDO");
+                return "";
+            }
 
+            @Override
+            public String noJugando() {
+                System.out.println("Estado: NO JUGANDO");
+                return "";
+            }
+        };
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,6 +71,11 @@ public class SeleccionNivel extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(37, 44, 67));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -229,12 +253,25 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- public void setNiveles(int nivel){
-      this.nivel = nivel; 
-   }
- public int getNiveles(){
-    return nivel; 
-   }
+    public void setNiveles(int nivel){
+         this.nivel = nivel; 
+      }
+    public int getNiveles(){
+       return nivel; 
+      }
+
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(int vidas) {
+        this.vidas = vidas;
+    }
+
+    public boolean isJugando() {
+        return jugando;
+    }
+    
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         MenuPrincipal newframe = new MenuPrincipal();
         
@@ -245,9 +282,10 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel1MouseClicked
         nivel = 1;
+        vidas = 3;
+        state.jugando();
         try {
-             
-           Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel1.txt").getPath().replaceAll("%20", " "),nivel);
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel1.txt").getPath().replaceAll("%20", " "),nivel, vidas);
              
             newframe.setVisible(true);
             
@@ -261,8 +299,10 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel2MouseClicked
         nivel = 2;
+        vidas = 3;
+        state.jugando();
         try {
-              Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel2.txt").getPath().replaceAll("%20", " "),nivel);
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel2.txt").getPath().replaceAll("%20", " "),nivel, vidas);
              
             newframe.setVisible(true);
             
@@ -276,8 +316,10 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel3MouseClicked
         nivel = 3;
+        vidas = 3;
+        state.jugando();
         try {
-            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel3.txt").getPath().replaceAll("%20", " "),nivel);
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel3.txt").getPath().replaceAll("%20", " "),nivel, vidas);
              
             newframe.setVisible(true);
             
@@ -291,11 +333,12 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel4MouseClicked
         nivel = 4;
+        vidas = 3;
+        state.jugando();
         try {
-            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel4.txt").getPath().replaceAll("%20", " "),nivel);
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel4.txt").getPath().replaceAll("%20", " "),nivel, vidas);
              
             newframe.setVisible(true);
-           
             
             this.dispose();
         } catch (FileNotFoundException ex) {
@@ -307,8 +350,10 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     private void Nivel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel5MouseClicked
         nivel = 5;
+        vidas = 3;
+        state.jugando();
         try {
-            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel5.txt").getPath().replaceAll("%20", " "),nivel);
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel5.txt").getPath().replaceAll("%20", " "),nivel, vidas);
              
             newframe.setVisible(true);
             
@@ -319,6 +364,10 @@ public class SeleccionNivel extends javax.swing.JFrame {
             Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Nivel5MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        state.noJugando();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -347,7 +396,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -355,8 +404,6 @@ public class SeleccionNivel extends javax.swing.JFrame {
             }
         });
     }
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel Nivel1;
     public javax.swing.JLabel Nivel2;
@@ -372,4 +419,15 @@ public class SeleccionNivel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
+
+
+    public void changeState(JugandoState jugandoState) {
+        setJugando(true);
+    }
+
+    public void setJugando(boolean jugando) {
+        this.jugando = jugando;
+    }
+    
+
 }
