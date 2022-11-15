@@ -26,7 +26,20 @@ public class Game extends javax.swing.JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	public  Game(int nivel, Tablero t, TableroGUI tgui){
+                tgui.actualizar();
+                
+		tgui.setPiso(nivel);
+		this.add(tgui);
+		tgui.setFocusable(true);
+		this.setSize(t.getWidth()*30, t.getHeight()*30);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+        
+        
 	public static void main(String[] args) {
 	}
+        
    
 }

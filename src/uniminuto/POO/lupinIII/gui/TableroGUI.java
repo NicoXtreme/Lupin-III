@@ -25,6 +25,9 @@ import uniminuto.POO.lupinIII.model.componentes.tesoros.Tesoro;
 import uniminuto.POO.lupinIII.model.componentes.llaves.Key;
 import uniminuto.POO.lupinIII.model.Direccion;
 import uniminuto.POO.lupinIII.model.Niveles;
+import uniminuto.POO.lupinIII.model.memento.Caretaker;
+import uniminuto.POO.lupinIII.model.memento.Originator;
+import uniminuto.POO.lupinIII.control.Game;
 
 public class TableroGUI extends JPanel {
 
@@ -37,9 +40,15 @@ public class TableroGUI extends JPanel {
     private Tablero t;
     private Vidas vidas;
     private Contador timer;
+    Caretaker caretaker = new Caretaker();
+    Originator originator = new Originator();
+    
+    SeleccionNivel n_lost = new SeleccionNivel();
+    
     private Niveles niveles = Niveles.getSingletonInstance(WIDTH);
-    int piso;
-    int vidasRest=1;
+    int piso = 1;
+    int vidasRest = 1;
+    
     public TableroGUI(Tablero t) {
         this.t = t;
         imgs = new HashMap<Class, Image>();
@@ -100,22 +109,40 @@ public class TableroGUI extends JPanel {
             }
             //COMPROBADOR, PARA SABER SI UN NIVEL SE SUPERO Y DESBLOQUEAR EL SIGUIENTE
             if (d != Direccion.STOP|| vidasRest>0) {
+                
+                originator.setEstado(tgui);
+                caretaker.addMemento(originator.guardar());
+                
                 t.moverLadron(d);
                 tgui.actualizar();
                 if (t.terminoJuego()) {
                     if (t.gano()) {
-                        niveles.setNiveles(piso+1);
-                        piso = niveles.getNiveles(); 
-                        niveles.Desbloquear(piso);
+                        if(piso+1==6){
+                            n_lost.lostGame();
+                        }else{
+                            niveles.setNiveles(piso+1);
+                            piso = niveles.getNiveles();                             
+                            niveles.Desbloquear(piso);                       
+                            //setNivelDesbloqueado(piso);
+                            setPiso(piso);
+                        }
+                            
                         timer.timer.stop();
+                        
                     } else {
                         vidas.setVidas(vidas.getVidas()-1);
                          vidasRest = vidas.getVidas();
                         if (vidasRest == 0){
                             JOptionPane.showMessageDialog(null, "Perdio");
+                            n_lost.lostGame();
                             timer.timer.stop();
                         }else{
-                            JOptionPane.showMessageDialog(null, "Le queda(n) "+vidasRest+" vida(s).");  
+                            n_lost.lostLife(
+                                        JOptionPane.showConfirmDialog(null, "Le queda(n) "+vidasRest+" vida(s)."),
+                                        t,
+                                        originator.restaurar(caretaker.getMemento())
+                            );                              
+                            
                             timer.timer.stop();
                         } 
                         
@@ -134,6 +161,10 @@ public class TableroGUI extends JPanel {
 
     public void setPiso(int piso) {
         this.piso = piso;
+    }
+    
+    public void setNivelDesbloqueado(int piso){
+        this.niveles.Desbloquear(piso); 
     }
     
 }

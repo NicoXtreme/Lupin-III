@@ -8,10 +8,12 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uniminuto.POO.lupinIII.control.Game;
+import uniminuto.POO.lupinIII.gui.TableroGUI;
 import uniminuto.POO.lupinIII.model.Contador;
 import uniminuto.POO.lupinIII.model.JugandoState;
 import uniminuto.POO.lupinIII.model.NoJugandoState;
 import uniminuto.POO.lupinIII.model.State;
+import uniminuto.POO.lupinIII.model.Tablero;
 import uniminuto.POO.lupinIII.model.exceptions.ArchivoCorruptoException;
 
 /**
@@ -29,6 +31,7 @@ public class SeleccionNivel extends javax.swing.JFrame {
     public int nivel;
     public int vidas;
     String path;
+    
     public SeleccionNivel() {
         initComponents();
         timer = new Contador();
@@ -427,6 +430,29 @@ public class SeleccionNivel extends javax.swing.JFrame {
 
     public void setJugando(boolean jugando) {
         this.jugando = jugando;
+    }
+    
+    public void lostLife(int x, Tablero t, TableroGUI gamecheckpoint) { 
+        if( x == 0){
+            
+                Game newframe = new Game(x,t.moverLadronOrigen(),gamecheckpoint);                        
+                newframe.setVisible(true);
+
+                this.dispose();
+        } else {
+            
+            lostGame();
+            
+        } 
+    } 
+     
+     
+        public void lostGame() {                                    
+            SeleccionNivel newframe = new SeleccionNivel();
+        
+            newframe.setVisible(true);
+        
+            this.dispose();
     }
     
 
