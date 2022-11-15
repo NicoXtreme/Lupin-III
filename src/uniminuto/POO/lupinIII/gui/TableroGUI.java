@@ -113,8 +113,10 @@ public class TableroGUI extends JPanel {
                          vidasRest = vidas.getVidas();
                         if (vidasRest == 0){
                             JOptionPane.showMessageDialog(null, "Perdio");
+                            timer.timer.stop();
                         }else{
                             JOptionPane.showMessageDialog(null, "Le queda(n) "+vidasRest+" vida(s).");  
+                            timer.timer.stop();
                         } 
                         
                     }
