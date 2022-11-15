@@ -246,6 +246,11 @@ public class Tablero {
         }
         return false;
     }
+    
+    public Tablero moverLadronOrigen() {
+        ladron.moverOrigen(this);
+        return this;        
+    }
 
     private boolean buscarPresionados() {
         for (Dinamico c : vDin) {

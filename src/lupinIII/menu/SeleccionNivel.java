@@ -8,7 +8,11 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uniminuto.POO.lupinIII.control.Game;
+import uniminuto.POO.lupinIII.gui.TableroGUI;
+import uniminuto.POO.lupinIII.model.Tablero;
 import uniminuto.POO.lupinIII.model.exceptions.ArchivoCorruptoException;
+import uniminuto.POO.lupinIII.model.memento.Originator;
+import uniminuto.POO.lupinIII.model.memento.Caretaker;
 
 /**
  *
@@ -244,12 +248,17 @@ public class SeleccionNivel extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void Nivel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Nivel1MouseClicked
-        nivel = 1;
+        nivel = 1; 
+   
         try {
-             
+           
+           
            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel1.txt").getPath().replaceAll("%20", " "),nivel);
-             
-            newframe.setVisible(true);
+           
+           
+           newframe.setVisible(true);
+            
+        
             
             this.dispose();
         } catch (FileNotFoundException ex) {
@@ -319,7 +328,45 @@ public class SeleccionNivel extends javax.swing.JFrame {
             Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Nivel5MouseClicked
+   
+     public void lostLife(int x, Tablero t, TableroGUI gamecheckpoint) { 
+        if( x == 0){
+            
+                Game newframe = new Game(x,t.moverLadronOrigen(),gamecheckpoint);                        
+                newframe.setVisible(true);
 
+                this.dispose();
+        } else {
+            
+            lostGame();
+            
+        } 
+    } 
+     
+     
+        public void lostGame() {                                    
+            SeleccionNivel newframe = new SeleccionNivel();
+        
+            newframe.setVisible(true);
+        
+            this.dispose();
+        /*    
+        nivel = x;
+        try {
+            Game newframe = new Game(Game.class.getResource("/uniminuto/POO/lupinIII/games/lupinIIINivel"+nivel+".txt").getPath().replaceAll("%20", " "),nivel);
+             
+            newframe.setVisible(true);
+           
+            
+            this.dispose();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArchivoCorruptoException ex) {
+            Logger.getLogger(SeleccionNivel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            */
+    }
+        
     /**
      * @param args the command line arguments
      */

@@ -18,6 +18,7 @@ public class Game extends javax.swing.JFrame{
 	public Game(String path,int nivel) throws FileNotFoundException, ArchivoCorruptoException{
 		Tablero t = new Tablero(path);
 		TableroGUI tgui = new TableroGUI(t);
+                
                 tgui.setPiso(nivel);
 		this.add(tgui);
 		tgui.setFocusable(true);
@@ -25,8 +26,25 @@ public class Game extends javax.swing.JFrame{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+        
+        public  Game(int nivel, Tablero t, TableroGUI tgui){
+                tgui.actualizar();
+                
+		tgui.setPiso(nivel);
+		this.add(tgui);
+		tgui.setFocusable(true);
+		this.setSize(t.getWidth()*30, t.getHeight()*30);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 	
+        
 	public static void main(String[] args) {
 	}
+        
+        /*public Game GameCheckPoint(){
+            return Game;
+}*/
    
+       
 }

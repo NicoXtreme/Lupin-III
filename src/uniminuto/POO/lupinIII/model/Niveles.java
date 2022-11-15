@@ -14,6 +14,8 @@ public class Niveles {
     */
     private static Niveles niveles;
     
+    /*Recibe el entero con el número del nivel
+    Retorno*/
     private Niveles(int nivel) {
         this.nivel = nivel;
         System.out.println("Se ha instanciado la clase Niveles por primera y unica vez");
@@ -54,7 +56,7 @@ public class Niveles {
                         n.Nivel1.setVisible(true);
         } 
         if (nivel==2) {
-                         n.Nivel1.setVisible(true);
+                        n.Nivel1.setVisible(true);
                         n.Nivel2.setVisible(true);
         }
         if(nivel==3){
@@ -63,7 +65,7 @@ public class Niveles {
                         n.Nivel3.setVisible(true);
         }
         if(nivel==4){
-                         n.Nivel1.setVisible(true);
+                        n.Nivel1.setVisible(true);
                         n.Nivel2.setVisible(true);
                         n.Nivel3.setVisible(true);
                         n.Nivel4.setVisible(true);
@@ -76,7 +78,7 @@ public class Niveles {
                         n.Nivel5.setVisible(true);
         }
         n.setNiveles(nivel);
-         n.setVisible(true);
+        n.setVisible(true);
    }
 
 }

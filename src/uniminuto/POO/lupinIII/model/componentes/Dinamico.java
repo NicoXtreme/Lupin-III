@@ -42,5 +42,10 @@ public abstract class Dinamico extends Componente {
 		mover(ni, nj);
 		return true;
 	}
-
-}
+        
+        public boolean moverOrigen(Tablero t){
+		int ni = 1;
+		int nj = 1;
+		mover(ni, nj);
+                return true;
+	}}
