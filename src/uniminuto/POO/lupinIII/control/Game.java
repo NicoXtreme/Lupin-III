@@ -29,7 +29,6 @@ public class Game extends javax.swing.JFrame{
 	public  Game(int nivel, Tablero t, TableroGUI tgui){
                 tgui.actualizar();
                 
-		tgui.setPiso(nivel);
 		this.add(tgui);
 		tgui.setFocusable(true);
 		this.setSize(t.getWidth()*30, t.getHeight()*30);

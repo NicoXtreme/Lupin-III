@@ -46,7 +46,7 @@ public class TableroGUI extends JPanel {
     SeleccionNivel n_lost = new SeleccionNivel();
     
     private Niveles niveles = Niveles.getSingletonInstance(WIDTH);
-    int piso = 1;
+    int piso;
     int vidasRest = 1;
     
     public TableroGUI(Tablero t) {
@@ -67,6 +67,7 @@ public class TableroGUI extends JPanel {
         niveles = new Niveles();
         timer = new Contador();
         timer.timer.start();
+        
         this.addKeyListener(new EvTeclado(t, this));
 
     }
@@ -87,12 +88,14 @@ public class TableroGUI extends JPanel {
 
         private Tablero t;
         private TableroGUI tgui;
-
+        
         public EvTeclado(Tablero t, TableroGUI tgui) {
             this.t = t;
             this.tgui = tgui;
+            
         }
-
+                
+        
         @Override
         public void keyPressed(KeyEvent e) {
             Direccion d = Direccion.STOP;
@@ -118,7 +121,9 @@ public class TableroGUI extends JPanel {
                 if (t.terminoJuego()) {
                     if (t.gano()) {
                         if(piso+1==6){
-                            n_lost.lostGame();
+                            niveles.setNiveles(5);
+                            piso = niveles.getNiveles();
+                            niveles.Desbloquear(piso);
                         }else{
                             niveles.setNiveles(piso+1);
                             piso = niveles.getNiveles();                             
@@ -126,12 +131,11 @@ public class TableroGUI extends JPanel {
                             //setNivelDesbloqueado(piso);
                             setPiso(piso);
                         }
-                            
                         timer.timer.stop();
                         
                     } else {
                         vidas.setVidas(vidas.getVidas()-1);
-                         vidasRest = vidas.getVidas();
+                        vidasRest = vidas.getVidas();
                         if (vidasRest == 0){
                             JOptionPane.showMessageDialog(null, "Perdio");
                             n_lost.lostGame();
@@ -140,7 +144,8 @@ public class TableroGUI extends JPanel {
                             n_lost.lostLife(
                                         JOptionPane.showConfirmDialog(null, "Le queda(n) "+vidasRest+" vida(s)."),
                                         t,
-                                        originator.restaurar(caretaker.getMemento())
+                                        originator.restaurar(caretaker.getMemento()), 
+                                        piso
                             );                              
                             
                             timer.timer.stop();
@@ -160,9 +165,12 @@ public class TableroGUI extends JPanel {
     }
 
     public void setPiso(int piso) {
-        this.piso = piso;
+        this.piso = piso;        
     }
-    
+    public TableroGUI setPiso2(int piso) {
+        this.piso = piso;
+        return this;        
+    }
     public void setNivelDesbloqueado(int piso){
         this.niveles.Desbloquear(piso); 
     }

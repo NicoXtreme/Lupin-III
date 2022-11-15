@@ -432,10 +432,12 @@ public class SeleccionNivel extends javax.swing.JFrame {
         this.jugando = jugando;
     }
     
-    public void lostLife(int x, Tablero t, TableroGUI gamecheckpoint) { 
+    public void lostLife(int x, Tablero t, TableroGUI gamecheckpoint, int pisoactual) { 
         if( x == 0){
-            
-                Game newframe = new Game(x,t.moverLadronOrigen(),gamecheckpoint);                        
+                Game newframe = new Game(x,
+                                            t.moverLadronOrigen(),
+                                          gamecheckpoint.setPiso2(pisoactual)
+                                        );                        
                 newframe.setVisible(true);
 
                 this.dispose();
