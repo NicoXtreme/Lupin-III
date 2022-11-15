@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 20
 36
 ####################################
@@ -34,3 +35,22 @@ K 8 3
 D 7 5
 D 7 7
 D 7 6
+=======
+10
+10
+##########
+#PPPPPPPP#
+#PPPPPPPP#
+#PPPPPPPP#
+#PPPPPPPP#
+####P#####
+#PPPPPPPP#
+#PPPPPPPP#
+#PPPPPPPP#
+##########
+4
+L 1 1
+$ 8 18 
+[ 5 4
+D 6 4
+>>>>>>> Stashed changes
