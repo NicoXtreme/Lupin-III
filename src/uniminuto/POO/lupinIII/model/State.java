@@ -9,7 +9,7 @@ import lupinIII.menu.SeleccionNivel;
 public abstract class State {
     SeleccionNivel user;
     
-    
+    //Clase State
     public State(){
         this.user = user;
     }
